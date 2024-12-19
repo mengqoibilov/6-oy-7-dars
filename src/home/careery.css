@@ -1,0 +1,76 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+  }
+  
+  .logo {
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+  
+
+  .navbar nav ul li {
+    cursor: pointer;
+  }
+  
+  .clone-project {
+    color: orange;
+    font-weight: bold;
+  }
+  
+
+  .career-main {
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  .career-tagline {
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    color: #888;
+  }
+  
+  .career-heading {
+    font-size: 2.5rem;
+    margin: 1rem 0;
+    line-height: 1.4;
+  }
+  
+  .career-heading span {
+    font-weight: bold;
+  }
+  
+  .career-subheading {
+    font-size: 1rem;
+    color: #666;
+    margin: 1.5rem 0 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .careers-text {
+    font-size: 6rem;
+    font-weight: bold;
+    color: #000;
+  }
+  
+  .career-open-positions {
+    font-size: 1rem;
+    color: #555;
+    margin-top: 2rem;
+  }
+  
+  .arrow {
+    font-size: 1.5rem;
+  }
+  
