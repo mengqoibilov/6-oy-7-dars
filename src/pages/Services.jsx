@@ -1,8 +1,8 @@
 import React from "react";
-import "./style.css";
-import rasm1 from "./img/rasm1.svg";
-import rasm2 from "./img/rasm2.svg";
-import rasm4 from "./img/rasm4.svg";
+import "../home/style.css";
+import rasm1 from "../home/img/rasm1.svg";
+import rasm2 from "../home/img/rasm2.svg";
+import rasm4 from "../home/img/rasm4.svg";
 
 const Services = () => {
   return (
@@ -12,7 +12,7 @@ const Services = () => {
         <header className="header">
           <div className="logo">Finsweet</div>
           <nav className="nav">
-            <a href="/" className="nav-link">Home</a>
+            <Link  href="/" className="nav-link">Home</Link>
             <a href="/" className="nav-link">Service</a>
             <a href="/" className="nav-link">Company</a>
             <a href="/" className="nav-link">Career</a>
@@ -36,7 +36,6 @@ const Services = () => {
             </p>
           </div>
 
-       
           <div className="service-images">
             <img src={rasm1} alt="Meeting 1" className="service-img" />
             <img src={rasm2} alt="Meeting 2" className="service-img" />
