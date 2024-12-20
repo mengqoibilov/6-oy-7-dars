@@ -1,6 +1,7 @@
 import React from 'react';
 import './home.css';
 import "../home/Footer"
+
 import rasm1 from "./img/rasm1.svg";
 import rasm2 from "./img/rasm2.svg";
 import img1 from "./img/img1.svg";
@@ -9,9 +10,11 @@ import img3 from "./img/img3.svg";
 import img4 from "./img/img4.svg";
 import img5 from "./img/img5.svg";
 import img6 from "./img/img6.svg";
-import { Link } from 'react-router-dom';
+import { Link,} from 'react-router-dom';
 
 const home = () => {
+
+  
   return (
     <div className="home-container">
       <header className="navbar">
