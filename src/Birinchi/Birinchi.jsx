@@ -3,75 +3,76 @@ import { useNavigate } from "react-router-dom";
 import "./birinchi.css";
 
 const Birinchi = () => {
-    const [products, setProducts] = useState([]);
+    const [photos, setPhotos] = useState([]);
+    const [selectedPhoto, setSelectedPhoto] = useState(null);
     const navigate = useNavigate();
 
     useEffect(() => {
-        const getProducts = async () => {
+        const getPhotos = async () => {
             try {
-                const response = await fetch("https://fakestoreapi.com/products");
+                const response = await fetch("https://jsonplaceholder.typicode.com/photos");
+                if (!response.ok) {
+                    throw new Error(`HTTP Error: ${response.status}`);
+                }
                 const data = await response.json();
-                setProducts(data.slice(0, 5)); 
+                setPhotos(data.slice(0, 5)); 
             } catch (error) {
-                console.error("Error fetching products:", error);
+                console.error("Error fetching photos:", error.message);
             }
         };
 
-        getProducts();
+        getPhotos();
     }, []);
 
-    const handleProductClick = (product) => {
-        navigate(`/product/${product.id}`, { state: { product } });
+    const handlePhotoClick = (photo) => {
+        setSelectedPhoto(photo);
+    };
+
+    const handleSeeMore = () => {
+        if (selectedPhoto) {
+            navigate(`/photo/${selectedPhoto.id}`, { state: { photo: selectedPhoto } });
+            setSelectedPhoto(null); 
+        }
+    };
+
+    const closeModal = () => {
+        setSelectedPhoto(null);
     };
 
     return (
         <div className="about-us">
             <div className="head">
-                <h2>The company leads entire webdesign process from concept to delivery.</h2>
-                <h3>The Era Of Technology.</h3>
-                <p>
-                    Through True Rich Attended does no end it his mother since real had half every
-                    him case in packages enquire we up ecstatic unsatiable saw his giving Remain
-                    expense you position concluded.
-                </p>
-            </div>
-
-            <div className="statistics">
-                <div className="stat-item">
-                    <h4>1560+</h4>
-                    <p>Project Delivered</p>
-                </div>
-                <div className="stat-item">
-                    <h4>100+</h4>
-                    <p>Professionals</p>
-                </div>
-                <div className="stat-item">
-                    <h4>950+</h4>
-                    <p>Happy Clients</p>
-                </div>
-                <div className="stat-item">
-                    <h4>10 yrs</h4>
-                    <p>Experience</p>
-                </div>
+                <h2>Photo Gallery</h2>
+                <p>Click on a photo to view details.</p>
             </div>
 
             <div className="products">
-                {products.map((product) => (
+                {photos.map((photo) => (
                     <div
-                        key={product.id}
+                        key={photo.id}
                         className="product-card"
-                        onClick={() => handleProductClick(product)}
+                        onClick={() => handlePhotoClick(photo)}
                     >
-                        <img src={product.image} alt={product.title} />
-                        <h5>{product.title}</h5>
+                        <img src={photo.thumbnailUrl} alt={photo.title} />
+                        <h5>{photo.title}</h5>
                     </div>
                 ))}
             </div>
+
+            {selectedPhoto && (
+                <div className="modal">
+                    <div className="modal-content">
+                        <span className="close" onClick={closeModal}>
+                            &times;
+                        </span>
+                        <img src={selectedPhoto.url} alt={selectedPhoto.title} />
+                        <h2>{selectedPhoto.title}</h2>
+                        <button onClick={handleSeeMore}>See More</button>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };
 
 export default Birinchi;
-
-
-

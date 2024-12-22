@@ -9,6 +9,7 @@ function Home() {
     <div>
      <Footer/>
      <Birinchi/>
+    
     </div>
   )
 }

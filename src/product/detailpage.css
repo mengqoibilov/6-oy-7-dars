@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.photo-details {
+    padding: 20px;
+    text-align: center;
+}
+
+.photo-info img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.back-button {
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+}

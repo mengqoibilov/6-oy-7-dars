@@ -5,7 +5,8 @@ import Servicecom from "./home/Servicecom";
 import Careeerycom from "./home/careerycom";
 import Footer from "./home/Footer";
 import Birinchi from "./Birinchi/Birinchi";
-import ProductDetails from "./product/ProductDetails"
+import ProductDetails from "./product/DetailPage"; 
+import Login from "./pages/layout/Login";
 
 function App() {
     return (
@@ -16,8 +17,9 @@ function App() {
                     <Route path="/company" element={<Company />} />
                     <Route path="/servicecom" element={<Servicecom />} />
                     <Route path="/career" element={<Careeerycom />} />
-                    <Route path="/product/:id" element={<ProductDetails />} />
+                    <Route path="/photo/:id" element={<ProductDetails />} /> 
                 </Routes>
+                <Login/>
                 <Footer />
             </div>
         </Router>
